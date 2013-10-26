@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+	 <FrameLayout 
+ 	    android:layout_width="fill_parent"
+   	 	android:layout_height="43dip"
+   	 	android:background="@drawable/tab_bg_selector"
+   	 	android:paddingTop="4dip"
+   	 	android:paddingBottom="4dip">
+		<Button
+		    android:id="@+id/developerTipButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="0dip"
+		    android:layout_gravity="left|center"
+		    android:background="@drawable/comment_button"
+		    android:text="정보 "
+		    android:textSize="14sp"
+		    android:textColor="#ffffffff"
+		    android:textStyle="bold" />
+	     <TextView
+	         android:id="@+id/title"
+	         android:gravity="center|center"
+	         android:layout_width="fill_parent"
+	         android:layout_height="fill_parent"
+	         android:textSize="18sp"
+	         android:textColor="#ffffffff"
+	         android:textStyle="bold"
+	         android:text="개발자" />
+		<Button
+		    android:id="@+id/commentButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="0dip"
+		    android:layout_gravity="right|center"
+		    android:background="@drawable/comment_button"
+		    android:text="+ 댓글"
+		    android:textSize="14sp"
+		    android:textColor="#ffffffff"
+		    android:textStyle="bold" />
+   	 </FrameLayout>
+    <ListView
+	 	android:id="@id/android:list"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:background="#FFFFFF"
+ 		android:cacheColorHint="#00000000"
+	 	android:drawSelectorOnTop="false" />
+    <TextView
+        android:id="@id/android:empty"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:text="로딩 중입니다."/>
+</LinearLayout>

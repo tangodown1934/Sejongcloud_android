@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#FFFFFF">
+	 <FrameLayout 
+ 	    android:layout_width="fill_parent"
+   	 	android:layout_height="43dip"
+   	 	android:background="@drawable/tab_bg_selector"
+   	 	android:paddingTop="4dip"
+   	 	android:paddingBottom="4dip">
+	
+   	 	<Button
+   	 	    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/logo"
+	        android:layout_gravity="center|center"
+	        android:scaleType="fitXY" 
+	        /> 
+		<Button
+		    android:id="@+id/profileNextButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="0dip"
+		    android:layout_gravity="right|center"
+		    android:background="@drawable/sort_button"
+		    android:text="완료"
+		    android:textSize="14sp"
+		    android:textColor="#ffffffff"
+		    android:textStyle="bold" /> 
+   	 </FrameLayout>   
+   	 
+	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent">
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical" 
+	    android:paddingLeft="10dip" 
+	    android:paddingRight="10dip"
+	    android:paddingTop="20dip">
+	<TextView
+	    android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:gravity="left"
+    	android:text="한번만 입력하면 이후 자동으로 채워집니다."
+    	android:textSize="11sp"
+    	android:textColor="@color/black"
+   	   android:layout_marginTop="3dip"
+   	   android:layout_marginBottom="3dip"/>
+    <LinearLayout 
+       android:orientation="vertical"
+  	   android:layout_width="fill_parent"
+   	   android:layout_height="1dip"
+   	   android:layout_marginBottom="15dip"
+   	   android:background="#878787"/>
+    <EditText
+        android:id="@+id/eventName"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:hint="*이름"
+    	android:layout_marginBottom="8dip"/>
+    <EditText
+        android:id="@+id/eventEmail"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:hint="*이메일"
+    	android:layout_marginBottom="8dip"/>
+    <EditText
+        android:id="@+id/eventPassword"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:password="true"
+    	android:hint="*비밀번호"
+    	android:layout_marginBottom="8dip"/>
+    <EditText
+        android:id="@+id/eventHp"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:hint="휴대폰번호"/>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
