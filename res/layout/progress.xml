@@ -14,11 +14,6 @@
 	    <ProgressBar 
 	       android:layout_width="30dip"
 	       android:layout_height="30dip"/>
-	    <TextView 
-			android:layout_width="80dip"
-			android:layout_height="30dip"
-			android:paddingLeft="3dip"
-			android:text="로드 중 ..."/>
     </LinearLayout>
 	<ImageButton 
         android:id="@+id/moreListButton"

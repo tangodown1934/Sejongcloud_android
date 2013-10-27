@@ -51,18 +51,15 @@ public class Main extends TabActivity {
 
 	private void setupTab(final View view, final String tag, Intent intent,
 			Drawable drawable) {
-		View tabview = createTabView(tabHost.getContext(), tag, drawable);
+		View tabview = createTabView(tabHost.getContext(), drawable);
 		TabSpec setContent = tabHost.newTabSpec(tag).setIndicator(tabview)
 				.setContent(intent);
 		tabHost.addTab(setContent);
 	}
 
-	private static View createTabView(final Context context, final String text,
-			Drawable drawable) {
+	private static View createTabView(final Context context, Drawable drawable) {
 		View view = LayoutInflater.from(context)
 				.inflate(R.layout.tabs_bg, null);
-//		TextView tv = (TextView) view.findViewById(R.id.tabsText);
-//		tv.setText(text);
 		ImageView iv = (ImageView) view.findViewById(R.id.tabsImage);
 		iv.setImageDrawable(drawable);
 

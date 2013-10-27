@@ -12,14 +12,16 @@
    	 	android:paddingBottom="4dip">
 		<Button
 		    android:id="@+id/developerTipButton"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginRight="0dip"
+		    android:layout_width="50dp"
+		    android:layout_height="fill_parent"
+		    android:layout_marginTop="4dp"
+		    android:layout_marginLeft="16dp"
+		    android:layout_marginBottom="4dp"
 		    android:layout_gravity="left|center"
-		    android:background="@drawable/comment_button"
+		    android:background="@color/button_blue"
 		    android:text="정보 "
 		    android:textSize="14sp"
-		    android:textColor="#ffffffff"
+		    android:textColor="@color/white"
 		    android:textStyle="bold" />
 	     <TextView
 	         android:id="@+id/title"
@@ -27,19 +29,21 @@
 	         android:layout_width="fill_parent"
 	         android:layout_height="fill_parent"
 	         android:textSize="18sp"
-	         android:textColor="#ffffffff"
+	         android:textColor="@color/white"
 	         android:textStyle="bold"
 	         android:text="개발자" />
 		<Button
 		    android:id="@+id/commentButton"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginRight="0dip"
+		    android:layout_width="70dp"
+		    android:layout_height="fill_parent"
 		    android:layout_gravity="right|center"
-		    android:background="@drawable/comment_button"
+		    android:layout_marginTop="4dp"
+		    android:layout_marginRight="16dp"
+		    android:layout_marginBottom="4dp"
+		    android:background="@color/button_blue"
 		    android:text="+ 댓글"
 		    android:textSize="14sp"
-		    android:textColor="#ffffffff"
+		    android:textColor="@color/white"
 		    android:textStyle="bold" />
    	 </FrameLayout>
     <ListView

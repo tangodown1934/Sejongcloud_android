@@ -5,4 +5,6 @@
 	<color name="black">#000000</color>
 	<color name="sub_black">#3c3c3c</color>
 	<color name="sub_blue">#e7e7e7</color>
+	<color name="button_blue">#0099cc</color>
+	
 </resources>
