@@ -5,10 +5,10 @@
     android:orientation="vertical" >
 	 <FrameLayout 
  	    android:layout_width="fill_parent"
-   	 	android:layout_height="43dip"
+   	 	android:layout_height="45dp"
    	 	android:background="@drawable/tab_bg_selector"
-   	 	android:paddingTop="4dip"
-   	 	android:paddingBottom="4dip">
+   	 	android:paddingTop="4dp"
+   	 	android:paddingBottom="4dp">
    	 	<Button
    	 	    android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -19,23 +19,10 @@
 		    android:id="@+id/sortButton"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_marginRight="0dip"
+		    android:layout_marginRight="16dp"
 		    android:layout_gravity="right|center"
-		    android:background="@drawable/sort_button"
-		    android:text="접기"
-		    android:textSize="14sp"
-		    android:textColor="#ffffffff"
-		    android:textStyle="bold" /> 
-	        <!-- 
-	     <TextView
-	         android:id="@+id/title"
-	         android:gravity="center|center"
-	         android:layout_width="fill_parent"
-	         android:layout_height="fill_parent"
-	         android:textSize="18sp"
-	         android:textColor="#ffffffff"
-	         android:textStyle="bold"
-	         android:text="Sejong Cloud"/> -->
+		    android:background="@drawable/sort_button_default"
+		    /> 
    	 </FrameLayout>
     <LinearLayout 
         android:id="@+id/sortButtons"
@@ -48,41 +35,46 @@
 		    android:id="@+id/noticeAll"
 		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
 		    android:layout_weight="1"
-			android:background="#F6BDD7"
-			android:padding="7dip"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
 			android:text ="전체" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeNew"
 		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
 		    android:layout_weight="1"
-			android:padding="7dip"
-			android:background="#FCC17B"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
 			android:text ="입학" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeInter"
 		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
 		    android:layout_weight="1"
-			android:padding="7dip"
-			android:background="#FBF7B6"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
 			android:text ="국제" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeCollege"
 		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
 		    android:layout_weight="1"
-			android:padding="7dip"
-			android:background="#CCFBB6"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
 			android:text ="학사" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeGradute"
 		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
 		    android:layout_weight="1"
-			android:padding="7dip"
-			android:background="#B6EEFB"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
 			android:text ="졸업" android:textSize="11sp"/>
 	</LinearLayout>
 	<ListView
 	android:id="@android:id/list"
-	android:layout_width="fill_parent" 
+	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_weight="1"
 	android:drawSelectorOnTop="false"

@@ -3,6 +3,7 @@ package app.sejongcloud;
 import java.util.ArrayList;
 
 import sejong.Article;
+import android.R.drawable;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -63,20 +64,24 @@ public class Tab2 extends ListActivity {
 		bol = pref.getInt("bol", 1);
 		if (bol == 1) {
 			buttonLinearLayout.setVisibility(View.VISIBLE);
-			sortBtn.setText("접기");
+			sortBtn.setBackgroundResource(app.sejongcloud.R.drawable.sort_button_up);
+//			sortBtn.setText("접기");
 		} else {
 			buttonLinearLayout.setVisibility(View.GONE);
-			sortBtn.setText("정렬");
+			sortBtn.setBackgroundResource(app.sejongcloud.R.drawable.sort_button_default);
+//			sortBtn.setText("정렬");
 
 		}
 		sortBtn.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View v) {
 				if (buttonLinearLayout.getVisibility() == View.GONE) {
 					buttonLinearLayout.setVisibility(View.VISIBLE);
-					sortBtn.setText("접기");
+					sortBtn.setBackgroundResource(app.sejongcloud.R.drawable.sort_button_up);
+//					sortBtn.setText("접기");
 				} else if (buttonLinearLayout.getVisibility() == View.VISIBLE) {
 					buttonLinearLayout.setVisibility(View.GONE);
-					sortBtn.setText("정렬");
+					sortBtn.setBackgroundResource(app.sejongcloud.R.drawable.sort_button_default);
+//					sortBtn.setText("정렬");
 				}
 			}
 		});

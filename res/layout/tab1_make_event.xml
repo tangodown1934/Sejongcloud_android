@@ -28,7 +28,7 @@
 		    android:layout_height="wrap_content"
 		    android:layout_marginRight="0dip"
 		    android:layout_gravity="right|center"
-		    android:background="@drawable/sort_button"
+		    android:background="@drawable/sort_button_default"
 		    android:text="다음"
 		    android:textSize="14sp"
 		    android:textColor="#ffffffff"

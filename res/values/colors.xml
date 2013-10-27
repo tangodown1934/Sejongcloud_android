@@ -3,4 +3,6 @@
 	<color name="transparent">#00000000</color>
 	<color name="white">#FFFFFF</color>
 	<color name="black">#000000</color>
+	<color name="sub_black">#3c3c3c</color>
+	<color name="sub_blue">#e7e7e7</color>
 </resources>

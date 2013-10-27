@@ -12,6 +12,8 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f040002;
+        public static final int sub_black=0x7f040003;
+        public static final int sub_blue=0x7f040004;
         public static final int transparent=0x7f040000;
         public static final int white=0x7f040001;
     }
@@ -46,25 +48,24 @@ public final class R {
         public static final int refresh_button_default=0x7f02001b;
         public static final int refresh_button_pressed=0x7f02001c;
         public static final int sejongcloud=0x7f02001d;
-        public static final int sort_button=0x7f02001e;
-        public static final int sort_button_default=0x7f02001f;
-        public static final int sort_button_pressed=0x7f020020;
-        public static final int tab1=0x7f020021;
-        public static final int tab2=0x7f020022;
-        public static final int tab3=0x7f020023;
-        public static final int tab5=0x7f020024;
-        public static final int tab6=0x7f020025;
-        public static final int tab_bg_selected=0x7f020026;
-        public static final int tab_bg_selector=0x7f020027;
-        public static final int tab_bg_unselected=0x7f020028;
-        public static final int tab_divider=0x7f020029;
-        public static final int tab_text_selector=0x7f02002a;
-        public static final int web=0x7f02002b;
-        public static final int writer=0x7f02002c;
+        public static final int sort_button_default=0x7f02001e;
+        public static final int sort_button_up=0x7f02001f;
+        public static final int tab1=0x7f020020;
+        public static final int tab2=0x7f020021;
+        public static final int tab3=0x7f020022;
+        public static final int tab5=0x7f020023;
+        public static final int tab6=0x7f020024;
+        public static final int tab_bg_selected=0x7f020025;
+        public static final int tab_bg_selector=0x7f020026;
+        public static final int tab_bg_unselected=0x7f020027;
+        public static final int tab_divider=0x7f020028;
+        public static final int tab_text_selector=0x7f020029;
+        public static final int web=0x7f02002a;
+        public static final int writer=0x7f02002b;
     }
     public static final class id {
-        public static final int cafe0Button=0x7f07004e;
-        public static final int cafe1Button=0x7f07004f;
+        public static final int TipView=0x7f07004a;
+        public static final int TipWebView=0x7f07004b;
         public static final int comment=0x7f070046;
         public static final int commentButton=0x7f070040;
         public static final int commentCount=0x7f070044;
@@ -98,13 +99,9 @@ public final class R {
         public static final int followPassword=0x7f070011;
         public static final int followerCount=0x7f07000d;
         public static final int followerCountBar=0x7f07000c;
-        public static final int food0Button=0x7f07004d;
-        public static final int food1Button=0x7f07004c;
-        public static final int foodTipButton=0x7f07004a;
-        public static final int foodWebView=0x7f070050;
+        public static final int foodWebView=0x7f07004c;
         public static final int generalTypeButton=0x7f070027;
         public static final int goUrlButton=0x7f070037;
-        public static final int libraryButton=0x7f07004b;
         public static final int libraryView=0x7f070048;
         public static final int libraryWebView=0x7f070049;
         public static final int logoLinear=0x7f070000;
@@ -142,9 +139,8 @@ public final class R {
         public static final int studyManagement=0x7f07002b;
         public static final int studyTypeButton=0x7f070026;
         public static final int subject=0x7f070006;
-        public static final int tabsImage=0x7f070052;
-        public static final int tabsLayout=0x7f070051;
-        public static final int tabsText=0x7f070053;
+        public static final int tabsImage=0x7f07004e;
+        public static final int tabsLayout=0x7f07004d;
         public static final int title=0x7f07003f;
         public static final int txt=0x7f070038;
     }

@@ -1,0 +1,22 @@
+it's android application for sejong univ. 
+
+-Tab1
+모임 
+-Tab2
+공지
+-Tab3
+소개 
+-Tab5
+도서관
+-Tab6
+식단
+-Logo
+스플래시 화면
+-Main
+하단 탭 구현
+-GetNotice
+html 파싱(공지사항)
+-GetNoticeContent
+게시글 html 파싱(공지사항의 게시글 내용)
+-JSONfunctions
+파싱함수

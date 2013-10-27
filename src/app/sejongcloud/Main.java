@@ -61,8 +61,8 @@ public class Main extends TabActivity {
 			Drawable drawable) {
 		View view = LayoutInflater.from(context)
 				.inflate(R.layout.tabs_bg, null);
-		TextView tv = (TextView) view.findViewById(R.id.tabsText);
-		tv.setText(text);
+//		TextView tv = (TextView) view.findViewById(R.id.tabsText);
+//		tv.setText(text);
 		ImageView iv = (ImageView) view.findViewById(R.id.tabsImage);
 		iv.setImageDrawable(drawable);
 
