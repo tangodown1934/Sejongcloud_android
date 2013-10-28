@@ -1,16 +1,16 @@
 it's android application for sejong univ. 
 
--Tab1
+-Group
 모임 
--Tab2
+-Notice
 공지
--Tab3
+-Community
 소개 
--Tab5
+-Library
 도서관
--Tab6
+-Tip
 식단
--Logo
+-Splash
 스플래시 화면
 -Main
 하단 탭 구현

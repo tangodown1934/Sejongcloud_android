@@ -13,7 +13,7 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
         <activity
-            android:name="app.sejongcloud.Logo"
+            android:name="app.sejongcloud.intro.Splash"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -24,84 +24,84 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="app.sejongcloud.Main"
+            android:name="app.sejongcloud.main.Main"
             android:label="Main"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab1"
+            android:name="app.sejongcloud.group.Group"
             android:label="tab1"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab1Content"
+            android:name="app.sejongcloud.group.GroupContent"
             android:label="모임정보"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab1MakeEventType"
+            android:name="app.sejongcloud.group.MakeEventType"
             android:label="모임선택"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab1MakeEventTypeStudy"
+            android:name="app.sejongcloud.group.Tab1MakeEventTypeStudyeStudy"
             android:label="스터디선택"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab1MakeEvent"
+            android:name="app.sejongcloud.group.MakeEvent"
             android:label="모임만들기"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab1MakeEventProfile"
+            android:name="app.sejongcloud.group.Tab1MakeEventProfileEventProfile"
             android:label="모임프로필"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab2"
+            android:name="app.sejongcloud.notice.Notice"
             android:label="tab2"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab2Content"
+            android:name="app.sejongcloud.notice.NoticeContent"
             android:label="tab2Content"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab2ContentWeb"
+            android:name="app.sejongcloud.notice.NoticeContentWeb"
             android:label="tab2ContentWeb"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab3"
+            android:name="app.sejongcloud.community.community"
             android:label="tab3"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab5"
+            android:name="app.sejongcloud.library.Library"
             android:label="tab5"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab6"
+            android:name="app.sejongcloud.tip.Tip"
             android:label="tab6"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="app.sejongcloud.Tab6Web"
+            android:name="app.sejongcloud.tip.TipWeb"
             android:label="학교생활 팁"
             android:screenOrientation="portrait" >
         </activity>
