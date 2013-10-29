@@ -5,10 +5,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center"
-    android:background="@color/white">
+    android:background="@color/blue">
     <ImageView
         android:id="@+id/splash"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:background="@drawable/logo_big"/>
+    	android:background="@drawable/splash"/>
 </LinearLayout>

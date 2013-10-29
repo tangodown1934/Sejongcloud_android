@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SejongCloud</string>
-    <string name="app_infomation">이 프로젝트는 오픈소스로 진행될 예정입니다.\n 안드로이드 개발을 할 수 있는 분들 중 참여하고 싶다면 언제든 참여가능합니다.\n제 이메일로 연락해주세요.</string>
+    <string name="app_infomation">이 프로젝트는 오픈소스로 진행될 예정입니다.\n안드로이드 개발을 할 수 있는 분들 중 참여하고 싶다면 언제든 참여가능합니다.\n제 이메일로 연락해주세요.</string>
 </resources>

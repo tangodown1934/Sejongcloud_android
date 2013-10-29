@@ -18,7 +18,7 @@ public class Splash extends Activity implements AnimationListener{
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.logo);
+        setContentView(R.layout.splash);
         
         Animation animation=new AlphaAnimation(0.0f, 1.0f);
         animation.setAnimationListener(new Animation.AnimationListener(){
