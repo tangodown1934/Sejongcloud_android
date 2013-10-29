@@ -10,6 +10,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import android.os.AsyncTask;
+
 /**
  * @author Heoungjun Yu
  * @version 2013.04.13

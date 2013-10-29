@@ -75,7 +75,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="Facebook: /HyungjunN"
+                android:text="Facebook: /sejongcloud"
                 android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>

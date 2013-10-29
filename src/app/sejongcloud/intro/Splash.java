@@ -10,8 +10,6 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import app.sejongcloud.R;
-import app.sejongcloud.R.id;
-import app.sejongcloud.R.layout;
 import app.sejongcloud.main.Main;
 
 public class Splash extends Activity implements AnimationListener{

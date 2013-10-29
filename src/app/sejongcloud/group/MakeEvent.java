@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import app.sejongcloud.R;
-import app.sejongcloud.R.id;
-import app.sejongcloud.R.layout;
 
 public class MakeEvent extends Activity {
 	String subject;

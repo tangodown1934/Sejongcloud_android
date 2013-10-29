@@ -9,8 +9,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import app.sejongcloud.R;
-import app.sejongcloud.R.id;
-import app.sejongcloud.R.layout;
 
 public class Library extends Activity {
 	WebView mWebView;

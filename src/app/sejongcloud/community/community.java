@@ -161,8 +161,7 @@ public class community extends ListActivity {
 				AlertDialog alert = new AlertDialog.Builder(community.this)
 						// .setIcon( R.drawable.icon )
 						.setTitle("공지")
-						.setMessage(
-								"권리는 우리들이 만들어 나아가야 하는 것입니다.\n커뮤니티를 원한다면 우리들 스스로가 노력할 필요가 있습니다.\n저는 이 프로젝트를 오픈소스로 진행할 것입니다.\n만약 안드로이드 개발을 할 수 있는 분들 중 참여하고 싶다면 언제든 참여가능합니다.\n제 이메일로 언제든 연락해주십시오.")
+						.setMessage(R.string.app_infomation)
 						.setPositiveButton("OK",
 								new DialogInterface.OnClickListener() {
 									@Override

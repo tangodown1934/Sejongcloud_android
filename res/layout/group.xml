@@ -10,17 +10,14 @@
    	 	android:paddingTop="4dip"
    	 	android:paddingBottom="4dip">
 
-		<ImageButton
+		<Button
 		    android:id="@+id/refreshButton"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="left|center"
-		    android:layout_marginLeft="8dip"
-		    android:layout_marginBottom="1dip"
-		    android:background="#0000"
-		    android:src="@drawable/refresh_button"
-		    android:visibility="visible"
-	        android:scaleType="fitXY"  />
+		    android:layout_marginLeft="16dp"
+		    android:background="@drawable/refresh_button_default"
+	        />
    	 	<Button
    	 	    android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -29,16 +26,17 @@
 	        android:scaleType="fitXY" />
 		<Button
 		    android:id="@+id/makeEvent"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginRight="0dip"
+		    android:layout_width="70dp"
+		    android:layout_height="fill_parent"
 		    android:layout_gravity="right|center"
-		    android:background="@drawable/sort_button_default"
+		    android:layout_marginTop="4dp"
+		    android:layout_marginRight="16dp"
+		    android:layout_marginBottom="4dp"
+		    android:background="@color/button_blue"
 		    android:text="만들기"
 		    android:textSize="14sp"
-		    android:textColor="#ffffffff"
-		    android:textStyle="bold"
-	        android:scaleType="fitXY"  />  
+		    android:textColor="@color/white"
+		    android:textStyle="bold" />
    	 </FrameLayout>    
     <ListView
 	 	android:id="@id/android:list"

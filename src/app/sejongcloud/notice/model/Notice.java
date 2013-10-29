@@ -1,9 +1,0 @@
-package app.sejongcloud.notice.model;
-
-
-public class Notice {
-	String new_object_subject;
-	String new_object_info;
-	String new_object_url;
-	String handle;
-}

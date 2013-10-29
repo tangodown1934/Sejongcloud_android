@@ -20,8 +20,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import app.sejongcloud.R;
-import app.sejongcloud.R.id;
-import app.sejongcloud.R.layout;
 import app.sejongcloud.main.Main;
 
 public class MakeEventProfile extends Activity {

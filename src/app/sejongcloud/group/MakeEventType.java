@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import app.sejongcloud.R;
-import app.sejongcloud.R.id;
-import app.sejongcloud.R.layout;
 
 public class MakeEventType extends Activity {
 	Button studyTypeBtn;

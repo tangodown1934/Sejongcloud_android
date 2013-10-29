@@ -1,29 +1,29 @@
 package app.sejongcloud.notice;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 import sejong.Parser;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import app.sejongcloud.R;
-import app.sejongcloud.R.id;
-import app.sejongcloud.R.layout;
+import app.sejongcloud.dialog.TransDialog;
 
 public class NoticeContent extends Activity {
-	String url;
-	Parser parser;
+	String url = null;
+	String result = null;
 
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.notice_content);
-
-		parser = new Parser();
-
+		
 		String board_seq = getIntent().getStringExtra("board_seq");
 		String handle = getIntent().getStringExtra("handle");
 		String subject = getIntent().getStringExtra("subject");
@@ -35,11 +35,16 @@ public class NoticeContent extends Activity {
 				+ "&command=view&curPage=1&board_seq="
 				+ board_seq
 				+ "&b_type=01";
-		String result = null;
 
 		try {
-			result = parser.content(url);
-		} catch (IOException e) {
+			result = new ParseContentTask().execute(url).get();
+
+			if (result != null) {
+				TransDialog.hideLoading();
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
 			e.printStackTrace();
 		}
 
@@ -52,11 +57,26 @@ public class NoticeContent extends Activity {
 						startActivity(i);
 					}
 				});
+
 		((TextView) findViewById(R.id.txt)).setText(Html.fromHtml(result));
 		((TextView) findViewById(R.id.contentSubject)).setText(subject);
 		((TextView) findViewById(R.id.contentUser)).setText(user);
 		((TextView) findViewById(R.id.contentDate)).setText(date);
-		// Toast.makeText(this, "url="+url+"result="+result,
-		// Toast.LENGTH_LONG).show();
+	}
+
+	private class ParseContentTask extends AsyncTask<String, Void, String> {
+
+		@Override
+		protected String doInBackground(String... mUrl) {
+			try {
+				Parser parser = new Parser();
+				result = parser.content(mUrl[0]);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+			return result;
+		}
 	}
 }

@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -39,7 +38,7 @@ public class Group extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.group);
 
-		ImageButton refresh = (ImageButton) findViewById(R.id.refreshButton);
+		Button refresh = (Button) findViewById(R.id.refreshButton);
 		Button makeEvent = (Button) findViewById(R.id.makeEvent);
 		refresh.setOnClickListener(mClickListener);
 		makeEvent.setOnClickListener(mClickListener);

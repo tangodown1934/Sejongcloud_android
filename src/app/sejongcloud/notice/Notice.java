@@ -24,9 +24,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import app.sejongcloud.R;
-import app.sejongcloud.R.drawable;
-import app.sejongcloud.R.id;
-import app.sejongcloud.R.layout;
 import app.sejongcloud.dialog.TransDialog;
 
 public class Notice extends ListActivity {
@@ -270,7 +267,7 @@ public class Notice extends ListActivity {
 	public void onListItemClick(ListView parent, View v, int position, long id) {
 		mPosition = position;
 		TransDialog.showLoading(this);
-
+		
 		new Thread() {
 			public void run() {
 				Intent i = new Intent(Notice.this, NoticeContent.class);
@@ -280,7 +277,6 @@ public class Notice extends ListActivity {
 				i.putExtra("user", result.get(mPosition).getUser());
 				i.putExtra("date", result.get(mPosition).getDate());
 				startActivity(i);
-				TransDialog.hideLoading();
 			}
 		}.start();
 	}
