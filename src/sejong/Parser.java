@@ -10,16 +10,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import android.os.AsyncTask;
-
 /**
  * @author Heoungjun Yu
  * @version 2013.04.13
  * 
  */
 public class Parser {
-	Article article; // ÇÏ³ªÀÇ °Ô½Ã±Û
-	List<Article> list; // ¿©·¯ °Ô½Ã±ÛÀ» ÀúÀåÇÏ±â À§ÇÑ list
+	Article article; // ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½
+	List<Article> list; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ list
+	public final static int TIMEOUT = 15 * 1000;
 
 	public Parser() {
 		article = null;
@@ -27,10 +26,10 @@ public class Parser {
 	}
 
 	/**
-	 * °Ô½Ã±Û ¸ñ·Ï ÆÄ½ÌÇÏ´Â ÇÔ¼ö
+	 * ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ ï¿½Ä½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 	 * 
 	 * @param urls
-	 * @return °Ô½Ã±ÛÀÇ id ¿Í title À» ÀúÀåÇÑ Å¬·¡½º ¸®½ºÆ®
+	 * @return ï¿½Ô½Ã±ï¿½ï¿½ï¿½ id ï¿½ï¿½ title ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	 * @throws IOException
 	 */
 	public List<Article> preview(HashMap<String, String> urls)
@@ -39,15 +38,16 @@ public class Parser {
 		String[] values = null;
 
 		try {
-			Document doc = Jsoup.connect(urls.get(Config.PREVIEW)).get();
+			Document doc = Jsoup.connect(urls.get(Config.PREVIEW))
+					.timeout(TIMEOUT).get();
 
-			Elements previews = doc.select(".k2_list_cnt a"); // ÀÏ¹İ °Ô½Ã±Û
-			Elements notices = doc.select(".k2_list_notice a"); // °øÁö»çÇ×
+			Elements previews = doc.select(".k2_list_cnt a"); // ï¿½Ï¹ï¿½ ï¿½Ô½Ã±ï¿½
+			Elements notices = doc.select(".k2_list_notice a"); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			list = new ArrayList<Article>();
 
 			for (Element e : notices) {
-				previews.add(0, e); // °øÁö»çÇ× ±Ûµµ ÀúÀå
+				previews.add(0, e); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 
 			/* preview start */
@@ -70,17 +70,17 @@ public class Parser {
 	}
 
 	/**
-	 * ±Û ³»¿ëÀ» ÆÄ½ÌÇÏ´Â ÇÔ¼ö
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 	 * 
 	 * @param url
-	 * @return ±Û ³»¿ë
+	 * @return ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public String content(String url) throws IOException {
 		try {
-			Document doc = Jsoup.connect(url).get();
+			Document doc = Jsoup.connect(url).timeout(TIMEOUT).get();
 
-			Elements title = doc.select(".k2_list_itm");
+			// Elements title = doc.select(".k2_list_itm");
 			Elements content = doc.select("#contents_td");
 
 			System.out.println(content.html());
@@ -99,28 +99,34 @@ public class Parser {
 		String[] values = null;
 
 		try {
-			Document doc = Jsoup.connect(url).get();
-			Elements notices = doc.select(".k2_list_cnt"); // °øÁö»çÇ×
+			Document doc = Jsoup.connect(url).timeout(TIMEOUT).get();
+			Elements notices = doc.select(".k2_list_cnt"); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			ArrayList<Article> articles = new ArrayList<Article>();
 			article = new Article();
 
 			for (Element e : notices) {
 				switch (i++) {
-				case 2: // Á¦¸ñ
+				default: // ï¿½ï¿½ï¿½ï¿½
 					temp = Jsoup.parse(e.html()).select("a").attr("onclick");
+					if (temp == "") {
+						// ê¸€ì˜ ì œëª©ì„ ë°œê²¬í•œ ìˆœê°„ì´ ì•„ë‹ˆë¼ë©´ ê³„ì†í•´ì„œ ë°˜ë³µë¬¸ì— ë¨¸ë¬´ë¥´ë©´ ì°¾ëŠ”ë‹¤.
+						i = 0;
+						continue;
+					}
+					// ê¸€ì˜ì œëª©ì„ ë°œê²¬í–ˆë‹¤ë©´ ë‹¤ìŒ ë‹¨ê³„ë¡œ ì§„í–‰
 					values = temp.split(",");
 
 					article.setId(values[2].split("'")[1]);
 					article.setTitle(e.text());
 					break;
-				case 3: // µî·ÏÀÚ
+				case 1: // ï¿½ï¿½ï¿½ï¿½ï¿½
 					article.setUser(e.text());
 					break;
-				case 4: // ³¯Â¥
+				case 2: // ï¿½ï¿½Â¥
 					article.setDate(e.text());
 					break;
-				case 5: // Á¶È¸¼ö
+				case 3: // ï¿½ï¿½È¸ï¿½ï¿½
 					article.setHit(e.text());
 					article.setHandle(handle);
 					articles.add(article);
@@ -129,7 +135,8 @@ public class Parser {
 					System.out.println("User :" + article.getUser());
 					System.out.println("Date :" + article.getDate());
 					System.out.println("Hit :" + article.getHit());
-					/* ÃÊ±âÈ­ */
+					/* ï¿½Ê±ï¿½È­ */
+					article = null;
 					article = new Article();
 					i = 0;
 					break;
@@ -138,7 +145,7 @@ public class Parser {
 
 			return articles;
 		} catch (Exception e) {
-			System.out.println("Exception : " + e);
+			System.out.println("Parse Exception : " + e.toString());
 			return null;
 		}
 	}

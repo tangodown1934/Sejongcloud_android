@@ -281,19 +281,24 @@ public class Notice extends ListActivity {
 		}.start();
 	}
 
-	class ThreadNotice extends Thread { // code thread
+	private class ThreadNotice extends Thread { // code thread
 		String mUrl;
-		Handler mHandler;
-
-		ThreadNotice(String url) {
+		
+		public ThreadNotice(String url) {
 			mUrl = url;
 		}
-
+			
 		public void run() {
+			super.run();
+			
 			try {
 				result = GetNotice.getNotice(mUrl);
+				
+				if(result == null){
+					System.out.print("ThreadNotice run error");
+				}
 			} catch (Exception e) {
-				;
+				Log.e("Get Notice Exception", e.toString());
 			}
 			mAfter.sendEmptyMessage(0);
 		}

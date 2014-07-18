@@ -23,6 +23,7 @@ public class GetNotice {
 		try { // notice
 			articles = parser.previews(address, handle);
 		} catch (Exception e) {
+			System.out.print("GetNotice Error : "+e.toString());
 			return null;
 		}
 		return articles;

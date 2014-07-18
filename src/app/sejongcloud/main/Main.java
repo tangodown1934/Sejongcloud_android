@@ -18,6 +18,7 @@ import app.sejongcloud.library.Library;
 import app.sejongcloud.notice.Notice;
 import app.sejongcloud.tip.Tip;
 
+@SuppressWarnings("deprecation")
 public class Main extends TabActivity {
 	private TabHost tabHost;
 
