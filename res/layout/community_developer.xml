@@ -68,14 +68,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="카카오톡: sejongcloud"
-                android:textColor="#000000" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:text="Facebook: /sejongcloud"
+                android:text="facebook.com/sejongcloud"
                 android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
@@ -110,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
             android:layout_marginLeft="8dip"
-            android:text="댓글: "
+            android:text="의견 "
             android:textColor="#000000"
             android:textSize="16sp" />
     </LinearLayout>

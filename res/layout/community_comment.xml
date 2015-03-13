@@ -8,5 +8,5 @@
         android:id="@+id/commentText"
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
-    	android:hint="하고싶은 말을 쓰세요"/>
+    	android:hint="당신의 의견을 적어주세요"/>
 </LinearLayout>

@@ -131,7 +131,7 @@ public class community extends ListActivity {
 				linear = (LinearLayout) View.inflate(community.this,
 						R.layout.community_comment, null);
 				new AlertDialog.Builder(community.this)
-						.setTitle("댓글")
+						.setTitle("의견")
 						// .setIcon(R.drawable.icon)
 						.setView(linear)
 						.setPositiveButton("남기기",
@@ -198,9 +198,9 @@ public class community extends ListActivity {
 					pw.write(sb.toString());
 					pw.flush();
 
-					BufferedReader bf = new BufferedReader(
-							new InputStreamReader(httpURLCon.getInputStream(),
-									"UTF-8"));
+                    BufferedReader bf = new BufferedReader(
+                            new InputStreamReader(httpURLCon.getInputStream(),
+                                    "UTF-8"));
 
 					StringBuilder buff = new StringBuilder();
 					String line;
@@ -222,7 +222,7 @@ public class community extends ListActivity {
 
 	private Handler pushHandler = new Handler() {
 		public void handleMessage(Message msg) {
-			Toast.makeText(community.this, "댓글을 남기셨습니다", Toast.LENGTH_LONG)
+			Toast.makeText(community.this, "의견 감사합니다", Toast.LENGTH_LONG)
 					.show();
 			mylist = new ArrayList<CommentResult>(); // arraylist 초기화 시키고 다시
 														// 어댑터에 적용하기 위해
@@ -264,7 +264,7 @@ public class community extends ListActivity {
 		public void handleMessage(Message msg) {
 			TransDialog.hideLoading();
 			setListAdapter(commentAdapter);
-			((TextView) v.findViewById(R.id.commentCount)).setText("댓글: "
+			((TextView) v.findViewById(R.id.commentCount)).setText("의견 "
 					+ commentCount + "개");
 			// View갱신
 		}

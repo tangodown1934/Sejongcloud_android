@@ -19,7 +19,7 @@
 		    android:layout_marginBottom="4dp"
 		    android:layout_gravity="left|center"
 		    android:background="@color/button_blue"
-		    android:text="정보 "
+		    android:text="공지 "
 		    android:textSize="14sp"
 		    android:textColor="@color/white"
 		    android:textStyle="bold" />
@@ -41,7 +41,7 @@
 		    android:layout_marginRight="16dp"
 		    android:layout_marginBottom="4dp"
 		    android:background="@color/button_blue"
-		    android:text="+ 댓글"
+		    android:text="+ 의견"
 		    android:textSize="14sp"
 		    android:textColor="@color/white"
 		    android:textStyle="bold" />
