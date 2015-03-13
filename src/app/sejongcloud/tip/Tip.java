@@ -25,7 +25,7 @@ public class Tip extends Activity {
 
 		mWebView = (WebView) findViewById(R.id.TipWebView);
 		mWebView.setVisibility(View.INVISIBLE);
-		mWebView.setWebViewClient(new webClient()); // WebViewClient ����
+		mWebView.setWebViewClient(new webClient()); // WebViewClient 지정
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		mWebView.setWebChromeClient(new WebChromeClient() {
 			public void onProgressChanged(WebView view, int progress) {
@@ -39,7 +39,7 @@ public class Tip extends Activity {
 				}
 			}
 		});
-		mWebView.loadUrl("http://ec2-54-238-178-0.ap-northeast-1.compute.amazonaws.com");
+		mWebView.loadUrl("http://ec2-54-64-124-136.ap-northeast-1.compute.amazonaws.com");
 	}
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

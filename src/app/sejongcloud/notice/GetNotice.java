@@ -10,7 +10,7 @@ import sejong.Parser;
 public class GetNotice {
 	public static ArrayList<Article> getNotice(String address) {
 		Pattern mPattern = Pattern.compile("handle=(.*)&board_id");
-		Matcher mTemp = mPattern.matcher(address); // �ΰ��� ����
+		Matcher mTemp = mPattern.matcher(address); // 부가정보 따옴
 		String handle = null;
 
 		if (mTemp.find()) {

@@ -9,7 +9,7 @@ import java.util.HashMap;
  */
 public class Config {
 	/**
-	 * °Ô½ÃÆÇ Á¾·ù ÆÄ½ÌÀ» ¿øÇÏ¸é °ñ¶ó¼­ »ç¿ë
+	 * ê²Œì‹œíŒ ì¢…ë¥˜ íŒŒì‹±ì„ ì›í•˜ë©´ ê³¨ë¼ì„œ ì‚¬ìš©
 	 */
 	public static final String NOTICE = "notice";
 	public static final String ADMISSION = "admission";
@@ -19,7 +19,7 @@ public class Config {
 	public static final String SCHOOL = "school";
 
 	/**
-	 * Map »ı¼º½Ã Key String À¸·Î »ç¿ëÇÏ±â À§ÇÑ ¹®ÀÚ¿­. ³»ºÎ¿¡¼­ »ç¿ë
+	 * Map ìƒì„±ì‹œ Key String ìœ¼ë¡œ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ë¬¸ìì—´. ë‚´ë¶€ì—ì„œ ì‚¬ìš©
 	 */
 	public static final String PREVIEW = "preview";
 	public static final String CONTENT = "content";
@@ -27,11 +27,11 @@ public class Config {
 	private HashMap<String, HashMap<String, String>> map;
 
 	/**
-	 * °íÁ¤ÀûÀ¸·Î ÆÄ½ÌÇÒ ´ë»óÀÇ URLÀ» ´ã°Ô ±¸Çö
+	 * ê³ ì •ì ìœ¼ë¡œ íŒŒì‹±í•  ëŒ€ìƒì˜ URLì„ ë‹´ê²Œ êµ¬í˜„
 	 */
 	public Config() {
 		try {
-			HashMap<String, String> value = new HashMap<String, String>(); // value ÀÓ½Ã ÀúÀå
+			HashMap<String, String> value = new HashMap<String, String>(); // value ì„ì‹œ ì €ì¥
 			map = new HashMap<String, HashMap<String,String>>();
 
 			/* url input */
@@ -63,7 +63,7 @@ public class Config {
 			value = mapping(
 					"http://cm.sejong.ac.kr/servlet/kr.co.k2web.jwizard.contents.board.boardUser.servlet.userMainServlet?command=list&client_id=board&handle=197&curPage=1&board_seq=62947&search=&column=&sBoard_id=197",
 					"http://cm.sejong.ac.kr/servlet/kr.co.k2web.jwizard.contents.board.boardUser.servlet.userMainServlet?client_id=board&handle=197&command=view&curPage=1&board_seq=");
-			map.put(SCHOOL, value); // ¼öÁ¤ ÇÊ¿ä... ÀÌ»óÇÏ°Ô ¾ÈµÊ.. ;
+			map.put(SCHOOL, value); // ìˆ˜ì • í•„ìš”... ì´ìƒí•˜ê²Œ ì•ˆë¨.. ;
 
 			/* end */
 		} catch (Exception e) {
@@ -74,7 +74,7 @@ public class Config {
 	/**
 	 * @param preview
 	 * @param content
-	 * @return preview, content ÀÇ Å°·Î ÁöÁ¤µÈ ¸Ê
+	 * @return preview, content ì˜ í‚¤ë¡œ ì§€ì •ëœ ë§µ
 	 */
 	public HashMap<String, String> mapping(String preview, String content) {
 		HashMap<String, String> urls = new HashMap<String, String>();
@@ -85,7 +85,7 @@ public class Config {
 	}
 
 	/**
-	 * °íÁ¤ »ğÀÔµÈ ¹®ÀÚ¿­ÀÌ ÀúÀåµÈ HashMap ¸®ÅÏ
+	 * ê³ ì • ì‚½ì…ëœ ë¬¸ìì—´ì´ ì €ì¥ëœ HashMap ë¦¬í„´
 	 * 
 	 * @return HashMap
 	 */

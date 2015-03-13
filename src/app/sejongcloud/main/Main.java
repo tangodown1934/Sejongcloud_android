@@ -31,19 +31,19 @@ public class Main extends TabActivity {
 		tabHost.setup();
 		tabHost.getTabWidget().setDividerDrawable(R.drawable.tab_divider);
 
-		setupTab(new TextView(this), "����",
+		setupTab(new TextView(this), "공지",
 				new Intent(this, Notice.class)
 						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP),
 				getResources().getDrawable(R.drawable.tab2));
-		setupTab(new TextView(this), "����",
+		setupTab(new TextView(this), "모임",
 				new Intent(this, Group.class)
 						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP),
 				getResources().getDrawable(R.drawable.tab1));
-		setupTab(new TextView(this), "������", new Intent(this, Library.class),
+		setupTab(new TextView(this), "도서관", new Intent(this, Library.class),
 				getResources().getDrawable(R.drawable.tab5));
-		setupTab(new TextView(this), "��", new Intent(this, Tip.class),
+		setupTab(new TextView(this), "팁", new Intent(this, Tip.class),
 				getResources().getDrawable(R.drawable.tab6));
-		setupTab(new TextView(this), "�Ұ�",
+		setupTab(new TextView(this), "소개",
 				new Intent(this, community.class)
 						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP),
 				getResources().getDrawable(R.drawable.tab3));

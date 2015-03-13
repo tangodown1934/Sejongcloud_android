@@ -27,7 +27,7 @@ public class TipWeb extends Activity {
 		mWebView = (WebView) findViewById(R.id.foodWebView);
 		mWebView.getSettings().setBuiltInZoomControls(true);
 		mWebView.setVisibility(View.INVISIBLE);
-		mWebView.setWebViewClient(new goLibraryClient()); // WebViewClient ����
+		mWebView.setWebViewClient(new goLibraryClient()); // WebViewClient 지정
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		mWebView.setWebChromeClient(new WebChromeClient() {
 			public void onProgressChanged(WebView view, int progress) {

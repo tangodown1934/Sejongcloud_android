@@ -16,8 +16,8 @@ import org.jsoup.select.Elements;
  * 
  */
 public class Parser {
-	Article article; // �ϳ��� �Խñ�
-	List<Article> list; // ���� �Խñ��� �����ϱ� ���� list
+    Article article; // 하나의 게시글
+    List<Article> list; // 여러 게시글을 저장하기 위한 list
 	public final static int TIMEOUT = 15 * 1000;
 
 	public Parser() {
@@ -25,13 +25,13 @@ public class Parser {
 		list = null;
 	}
 
-	/**
-	 * �Խñ� ��� �Ľ��ϴ� �Լ�
-	 * 
-	 * @param urls
-	 * @return �Խñ��� id �� title �� ������ Ŭ���� ����Ʈ
-	 * @throws IOException
-	 */
+    /**
+     * 게시글 목록 파싱하는 함수
+     *
+     * @param urls
+     * @return 게시글의 id 와 title 을 저장한 클래스 리스트
+     * @throws IOException
+     */
 	public List<Article> preview(HashMap<String, String> urls)
 			throws IOException {
 		String temp = null;
@@ -41,13 +41,13 @@ public class Parser {
 			Document doc = Jsoup.connect(urls.get(Config.PREVIEW))
 					.timeout(TIMEOUT).get();
 
-			Elements previews = doc.select(".k2_list_cnt a"); // �Ϲ� �Խñ�
-			Elements notices = doc.select(".k2_list_notice a"); // ��������
+            Elements previews = doc.select(".k2_list_cnt a"); // 일반 게시글
+            Elements notices = doc.select(".k2_list_notice a"); // 공지사항
 
 			list = new ArrayList<Article>();
 
 			for (Element e : notices) {
-				previews.add(0, e); // �������� �۵� ����
+                previews.add(0, e); // 공지사항 글도 저장
 			}
 
 			/* preview start */
@@ -69,13 +69,13 @@ public class Parser {
 		}
 	}
 
-	/**
-	 * �� ������ �Ľ��ϴ� �Լ�
-	 * 
-	 * @param url
-	 * @return �� ����
-	 * @throws IOException
-	 */
+    /**
+     * 글 내용을 파싱하는 함수
+     *
+     * @param url
+     * @return 글 내용
+     * @throws IOException
+     */
 	public String content(String url) throws IOException {
 		try {
 			Document doc = Jsoup.connect(url).timeout(TIMEOUT).get();
@@ -100,14 +100,14 @@ public class Parser {
 
 		try {
 			Document doc = Jsoup.connect(url).timeout(TIMEOUT).get();
-			Elements notices = doc.select(".k2_list_cnt"); // ��������
+            Elements notices = doc.select(".k2_list_cnt"); // 공지사항
 
 			ArrayList<Article> articles = new ArrayList<Article>();
 			article = new Article();
 
 			for (Element e : notices) {
 				switch (i++) {
-				default: // ����
+				default: // ????
 					temp = Jsoup.parse(e.html()).select("a").attr("onclick");
 					if (temp == "") {
 						// 글의 제목을 발견한 순간이 아니라면 계속해서 반복문에 머무르면 찾는다.
@@ -120,13 +120,13 @@ public class Parser {
 					article.setId(values[2].split("'")[1]);
 					article.setTitle(e.text());
 					break;
-				case 1: // �����
+				case 1: //
 					article.setUser(e.text());
 					break;
-				case 2: // ��¥
+                case 2: // 제목
 					article.setDate(e.text());
 					break;
-				case 3: // ��ȸ��
+				case 3: // 등록자
 					article.setHit(e.text());
 					article.setHandle(handle);
 					articles.add(article);
@@ -135,7 +135,7 @@ public class Parser {
 					System.out.println("User :" + article.getUser());
 					System.out.println("Date :" + article.getDate());
 					System.out.println("Hit :" + article.getHit());
-					/* �ʱ�ȭ */
+					/* 초기화 */
 					article = null;
 					article = new Article();
 					i = 0;

@@ -1,14 +1,14 @@
 package sejong;
 
 /**
- * °Ô½Ã±ÛÀ» ÆÄ½ÌÇØ¼­ ´ã´Â Å¬·¡½º
+ * ê²Œì‹œê¸€ì„ íŒŒì‹±í•´ì„œ ë‹´ëŠ” í´ë˜ìŠ¤
  * 
  * @author Heoungjun Yu
  */
 public class Article {
-	private String title; // ±Û Á¦¸ñ
-	private String content; // ±Û ³»¿ë
-	private String id; // ÇØ´ç
+	private String title; // ê¸€ ì œëª©
+	private String content; // ê¸€ ë‚´ìš©
+	private String id; // í•´ë‹¹
 	private String date;
 	private String user;
 	private String hit;

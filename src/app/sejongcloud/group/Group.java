@@ -136,9 +136,9 @@ public class Group extends ListActivity {
 						map.put("index", data.getString("no"));
 						map.put("follower_count", count + "");
 						map.put("event_count",
-								count + "/" + data.getString("count") + "��");
+								count + "/" + data.getString("count") + "명");
 						map.put("event_period", data.getString("period")
-								+ "�� ����");
+								+ "일 남음");
 
 						mylist.add(map);
 					}
@@ -178,7 +178,7 @@ public class Group extends ListActivity {
 				backKeyClickTime = System.currentTimeMillis();
 
 				Toast t = Toast.makeText(Group.this,
-						"'�ڷ�' ��ư��  �ѹ� �� ������ ����˴ϴ�", Toast.LENGTH_SHORT);
+						"'뒤로' 버튼을  한번 더 누르면 종료됩니다", Toast.LENGTH_SHORT);
 				t.setDuration(duration);
 				t.show();
 

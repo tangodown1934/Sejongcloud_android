@@ -22,7 +22,7 @@ public class NoticeContentWeb extends Activity {
 		String url = getIntent().getStringExtra("url");
 		mWebView = (WebView) findViewById(R.id.noticeWebView);
 		mWebView.setVisibility(View.INVISIBLE);
-		mWebView.setWebViewClient(new goNoticeClient()); // WebViewClient ����
+		mWebView.setWebViewClient(new goNoticeClient()); // WebViewClient 지정
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		mWebView.loadUrl(url);
 		mWebView.setWebChromeClient(new WebChromeClient() {
