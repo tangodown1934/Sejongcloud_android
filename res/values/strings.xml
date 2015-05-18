@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">SejongCloud</string>
     <string name="app_infomation">어플리케이션은 오픈소스로 누구나 참여할수 있습니다. 세종클라우드를 만들어가고 싶다면 언제든 참여가능합니다. 이메일로 연락해주세요</string>
+    <string name="title">세종클라우드</string>
 </resources>

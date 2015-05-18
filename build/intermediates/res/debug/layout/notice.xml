@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	 <FrameLayout 
+ 	    android:layout_width="fill_parent"
+   	 	android:layout_height="48dp"
+   	 	android:background="@drawable/tab_bg_selector"
+   	 	android:paddingTop="4dp"
+   	 	android:paddingBottom="4dp">
+   	 	<!--
+		 <Button
+   	 	    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/logo"
+	        android:layout_gravity="center|center"
+			android:id="@+id/" />
+		-->
+		 <TextView
+			 android:id="@+id/title"
+			 android:layout_width="fill_parent"
+			 android:layout_height="fill_parent"
+			 android:text="@string/title"
+			 android:gravity="center"
+			 android:textColor="@color/white"
+			 />
+		<Button
+		    android:id="@+id/sortButton"
+		    android:layout_width="24dp"
+		    android:layout_height="24dp"
+		    android:layout_marginRight="8dp"
+		    android:layout_gravity="right|center"
+		    android:background="@drawable/sort_button_default"
+		    /> 
+   	 </FrameLayout>
+    <LinearLayout 
+        android:id="@+id/sortButtons"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        >
+		<Button 
+		    android:id="@+id/noticeAll"
+		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_weight="1"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
+			android:text ="전체" android:textSize="11sp"/>
+		<Button 
+		    android:id="@+id/noticeNew"
+		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_weight="1"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
+			android:text ="입학" android:textSize="11sp"/>
+		<Button 
+		    android:id="@+id/noticeInter"
+		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_weight="1"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
+			android:text ="국제" android:textSize="11sp"/>
+		<Button 
+		    android:id="@+id/noticeCollege"
+		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_weight="1"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
+			android:text ="학사" android:textSize="11sp"/>
+		<Button 
+		    android:id="@+id/noticeGradute"
+		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_weight="1"
+			android:padding="7dp"
+			android:background="@color/sub_blue"
+			android:textColor="@color/sub_black"
+			android:text ="졸업" android:textSize="11sp"/>
+	</LinearLayout>
+	<ListView
+	android:id="@android:id/list"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:drawSelectorOnTop="false"
+    android:background="#FFFFFF"
+    android:cacheColorHint="#00000000"/>
+	<TextView 
+	    android:id="@android:id/empty" 
+		android:layout_width="fill_parent" 
+		android:text="게시물이 없습니다 " 
+		android:layout_height="fill_parent"
+		android:gravity="center" 
+		/>
+</LinearLayout>
+<!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/layout/notice.xml -->

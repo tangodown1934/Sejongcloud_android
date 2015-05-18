@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">	
+	 <FrameLayout 
+ 	    android:layout_width="fill_parent"
+   	 	android:layout_height="43dip"
+   	 	android:background="@drawable/tab_bg_selector"
+   	 	android:paddingTop="4dip"
+   	 	android:paddingBottom="4dip">
+
+		<Button
+		    android:id="@+id/refreshButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="left|center"
+		    android:layout_marginLeft="16dp"
+		    android:background="@drawable/refresh_button_default"
+	        />
+   	 	<Button
+   	 	    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/logo"
+	        android:layout_gravity="center|center"
+	        android:scaleType="fitXY" />
+		<Button
+		    android:id="@+id/makeEvent"
+		    android:layout_width="70dp"
+		    android:layout_height="fill_parent"
+		    android:layout_gravity="right|center"
+		    android:layout_marginTop="4dp"
+		    android:layout_marginRight="16dp"
+		    android:layout_marginBottom="4dp"
+		    android:background="@color/button_blue"
+		    android:text="만들기"
+		    android:textSize="14sp"
+		    android:textColor="@color/white"
+		    android:textStyle="bold" />
+   	 </FrameLayout>    
+    <ListView
+	 	android:id="@id/android:list"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:background="#FFFFFF"
+ 		android:cacheColorHint="#00000000"
+	 	android:drawSelectorOnTop="false" />
+
+    <TextView
+        android:id="@id/android:empty"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:text="로딩 중입니다."/>
+
+</LinearLayout><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/layout/group.xml -->

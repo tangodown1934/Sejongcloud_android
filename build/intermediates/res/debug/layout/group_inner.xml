@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="7dp"
+    >
+	<TextView  
+		android:id="@+id/eventTitle"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:text="title"
+	    android:textSize="17sp"
+		android:textColor="#000000" />
+	<LinearLayout 
+    	android:orientation="horizontal"
+   		android:layout_width="fill_parent"
+   		android:layout_height="fill_parent"
+   		android:paddingTop="5dip">
+		<ImageView
+		    android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:src="@drawable/event_count"
+			android:layout_marginRight="8dip"
+			/>
+	    <TextView  
+		android:id="@+id/eventCount"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:textSize="15sp"
+		android:textColor="#A4A4A4"
+		android:text="count" />
+		<ImageView
+		    android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:src="@drawable/event_period"
+			android:layout_marginRight="8dip"
+			android:layout_marginLeft="12dip"
+			android:layout_marginTop="2dip"
+			/>
+	    <TextView  
+		android:id="@+id/eventPeriod"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:textSize="15sp"
+		android:textColor="#A4A4A4"
+		android:text="period" />
+    </LinearLayout>
+</LinearLayout><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/layout/group_inner.xml -->

@@ -5,21 +5,31 @@
     android:orientation="vertical" >
 	 <FrameLayout 
  	    android:layout_width="fill_parent"
-   	 	android:layout_height="45dp"
+   	 	android:layout_height="48dp"
    	 	android:background="@drawable/tab_bg_selector"
    	 	android:paddingTop="4dp"
    	 	android:paddingBottom="4dp">
-   	 	<Button
+   	 	<!--
+		 <Button
    	 	    android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/logo"
 	        android:layout_gravity="center|center"
-	        />
+			android:id="@+id/" />
+		-->
+		 <TextView
+			 android:id="@+id/title"
+			 android:layout_width="fill_parent"
+			 android:layout_height="fill_parent"
+			 android:text="@string/title"
+			 android:gravity="center"
+			 android:textColor="@color/white"
+			 />
 		<Button
 		    android:id="@+id/sortButton"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginRight="16dp"
+		    android:layout_width="24dp"
+		    android:layout_height="24dp"
+		    android:layout_marginRight="8dp"
 		    android:layout_gravity="right|center"
 		    android:background="@drawable/sort_button_default"
 		    /> 
