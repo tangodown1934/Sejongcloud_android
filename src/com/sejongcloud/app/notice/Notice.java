@@ -20,6 +20,7 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,8 +39,8 @@ public class Notice extends ListActivity {
 	int handle;
 	ListView lv;
 	ThreadNotice mThread;
-	ArrayList<Article> result;
-	ArrayList<Article> temp;
+	ArrayList<Article> result = null;
+	ArrayList<Article> temp = null;
 	NoticeAdapter noticeAdapter;
 	int mPosition;
 	int url_current = 1;
@@ -51,6 +52,7 @@ public class Notice extends ListActivity {
 	LinearLayout buttonLinearLayout;
 	Button mFooterLayout;
 	Button sortBtn;
+	ImageButton ib;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -180,12 +182,28 @@ public class Notice extends ListActivity {
 
 	Handler getHandler = new Handler() {
 		public void handleMessage(Message msg) { // UI
-			for (int i = 0; i < 12; i++) {
-				result.add(temp.get(i));
+			try {
+				if(temp.isEmpty() == true)
+					return;
+
+				String resultTop = result.get(result.size() - 1).getId();
+				Log.w(" compare temp result : ", temp.get(0).getId()+"/"+temp.get(temp.size()-1).getId()+"/"+resultTop);
+
+				if (temp.get(0).getId().equals(resultTop) || temp.get(temp.size()-1).getId().equals(resultTop)){
+					ib = (ImageButton) findViewById(R.id.moreListButton);
+					ib.setVisibility(View.GONE);
+				}else {
+					for (int i = 0; i < temp.size(); i++) {
+						result.add(temp.get(i));
+					}
+				}
+
+				noticeAdapter.notifyDataSetChanged(); // ListView가 변경됬다는 것을 어댑터에
+				// 알려야함
+				mProgressLayout.setVisibility(View.GONE);
+			}catch (Exception e ){
+				e.printStackTrace();
 			}
-			noticeAdapter.notifyDataSetChanged(); // ListView가 변경됬다는 것을 어댑터에
-													// 알려야함
-			mProgressLayout.setVisibility(View.GONE);
 		}
 	};
 
@@ -231,6 +249,10 @@ public class Notice extends ListActivity {
 		public void onClick(final View v) {
 			url_current = 1;
 			TransDialog.showLoading(Notice.this);
+
+			ib = (ImageButton) findViewById(R.id.moreListButton);
+			ib.setVisibility(View.VISIBLE);
+
 			switch (v.getId()) {
 			case R.id.noticeAll: // 전체
 				handle = handleArray[0];

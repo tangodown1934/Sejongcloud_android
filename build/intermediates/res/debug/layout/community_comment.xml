@@ -9,4 +9,4 @@
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:hint="당신의 의견을 적어주세요"/>
-</LinearLayout><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/layout/community_comment.xml -->
+</LinearLayout><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/layout/community_comment.xml -->

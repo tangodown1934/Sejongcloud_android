@@ -6,4 +6,4 @@
 	android:shape="rectangle">
 	<gradient android:startColor="@color/blue_dark" android:centerColor="@color/blue_dark"
 		android:endColor="@color/blue_dark" android:angle="-90" />
-</shape><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/drawable/tab_bg_selected.xml -->
+</shape><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/drawable/tab_bg_selected.xml -->

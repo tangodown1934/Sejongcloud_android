@@ -7,4 +7,4 @@
 	<gradient android:startColor="@color/blue" android:centerColor="@color/blue" 
 	android:endColor="@color/blue"
 		android:angle="-90" />
-</shape><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/drawable/tab_bg_unselected.xml -->
+</shape><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/drawable/tab_bg_unselected.xml -->

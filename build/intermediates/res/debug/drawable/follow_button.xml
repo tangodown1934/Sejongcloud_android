@@ -11,4 +11,4 @@
         android:drawable="@drawable/follow_button_pressed" />
     <!-- default -->
     <item android:drawable="@drawable/follow_button_default" />
-</selector><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/drawable/follow_button.xml -->
+</selector><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/drawable/follow_button.xml -->

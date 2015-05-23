@@ -1,33 +1,32 @@
-package com.sejongcloud.app.tip;
+package com.sejongcloud.app.food;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import com.sejongcloud.app.R;
 
-public class TipWeb extends Activity {
+public class Food extends Activity {
 	WebView mWebView;
 	ProgressDialog dialog;
-	String url;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tip_web);
+		setContentView(R.layout.tip);
 
-		url = getIntent().getStringExtra("url");
 		dialog = new ProgressDialog(this);
 		dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		dialog.setCancelable(false);
 		dialog.show();
 
-		mWebView = (WebView) findViewById(R.id.foodWebView);
-		mWebView.getSettings().setBuiltInZoomControls(true);
+		mWebView = (WebView) findViewById(R.id.TipWebView);
 		mWebView.setVisibility(View.INVISIBLE);
-		mWebView.setWebViewClient(new goLibraryClient()); // WebViewClient 지정
+		mWebView.setWebViewClient(new webClient()); // WebViewClient 지정
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		mWebView.setWebChromeClient(new WebChromeClient() {
 			public void onProgressChanged(WebView view, int progress) {
@@ -41,10 +40,18 @@ public class TipWeb extends Activity {
 				}
 			}
 		});
-		mWebView.loadUrl(url);
+		mWebView.loadUrl("http://ec2-54-64-124-136.ap-northeast-1.compute.amazonaws.com/food");
 	}
 
-	private class goLibraryClient extends WebViewClient {
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
+			mWebView.goBack();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	private class webClient extends WebViewClient {
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
 			view.loadUrl(url);
 			return true;

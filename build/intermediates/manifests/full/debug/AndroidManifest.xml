@@ -33,37 +33,8 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.sejongcloud.app.group.Group"
+            android:name="com.sejongcloud.app.food.Food"
             android:label="tab1"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.sejongcloud.app.group.GroupContent"
-            android:label="모임정보"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.sejongcloud.app.group.MakeEventType"
-            android:label="모임선택"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.sejongcloud.app.group.Tab1MakeEventTypeStudyeStudy"
-            android:label="스터디선택"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.sejongcloud.app.group.MakeEvent"
-            android:label="모임만들기"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.sejongcloud.app.group.Tab1MakeEventProfileEventProfile"
-            android:label="모임프로필"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
@@ -100,7 +71,7 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.sejongcloud.app.tip.TipWeb"
+            android:name="com.sejongcloud.app.utils.CustomWebView"
             android:label="학교생활 팁"
             android:screenOrientation="portrait" >
         </activity>

@@ -15,4 +15,4 @@
 		android:layout_height="wrap_content" android:text="Title"
 		android:textSize="13sp" android:textColor="@drawable/tab_text_selector" />
 		 -->
-</LinearLayout><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/layout/tabs_bg.xml -->
+</LinearLayout><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/layout/tabs_bg.xml -->

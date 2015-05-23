@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\TZ\AndroidstudioProjects\sejongcloud_android\libs\jsoup-1.7.2.jar"
+        jar="C:\Users\TZ\git\sejongcloud_android\libs\jsoup-1.7.2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="872693211fd68d1c4e116cf90021603207725e19">
-        <dex dex="C:\Users\TZ\AndroidstudioProjects\sejongcloud_android\build\intermediates\pre-dexed\debug\jsoup-1.7.2-d3961f9beea15f7647e781cfad755ea191c502f3.jar" />
+        <dex dex="C:\Users\TZ\git\sejongcloud_android\build\intermediates\pre-dexed\debug\jsoup-1.7.2-2e88c9ed98aa9f42cb5d75e711a3d75f9dd2760e.jar" />
     </item>
     <item
-        jar="C:\Users\TZ\AndroidstudioProjects\sejongcloud_android\libs\android-support-v4.jar"
+        jar="C:\Users\TZ\git\sejongcloud_android\libs\android-support-v4.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
-        <dex dex="C:\Users\TZ\AndroidstudioProjects\sejongcloud_android\build\intermediates\pre-dexed\debug\android-support-v4-0190c2ed9ef1f506ace65f1a5107eb84debf7761.jar" />
+        <dex dex="C:\Users\TZ\git\sejongcloud_android\build\intermediates\pre-dexed\debug\android-support-v4-aff2ce1e094d62e7eb09eba533dc8f5742892ecc.jar" />
     </item>
     <item
-        jar="C:\Users\TZ\AndroidstudioProjects\sejongcloud_android\libs\jsoup-1.7.2-javadoc.jar"
+        jar="C:\Users\TZ\git\sejongcloud_android\libs\jsoup-1.7.2-javadoc.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="763b82924959cd9b430dc723811a553329e02e05">
-        <dex dex="C:\Users\TZ\AndroidstudioProjects\sejongcloud_android\build\intermediates\pre-dexed\debug\jsoup-1.7.2-javadoc-a4414b481eda6c3ebf605365d9ddccfaf6b5b938.jar" />
+        <dex dex="C:\Users\TZ\git\sejongcloud_android\build\intermediates\pre-dexed\debug\jsoup-1.7.2-javadoc-cf41d7ef2a5f226d49d8f5d2f1809b0205034478.jar" />
     </item>
 
 </items>

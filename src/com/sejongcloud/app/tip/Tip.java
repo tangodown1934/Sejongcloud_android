@@ -39,7 +39,7 @@ public class Tip extends Activity {
 				}
 			}
 		});
-		mWebView.loadUrl("http://ec2-54-64-124-136.ap-northeast-1.compute.amazonaws.com");
+		mWebView.loadUrl("http://ec2-54-64-124-136.ap-northeast-1.compute.amazonaws.com/library");
 	}
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

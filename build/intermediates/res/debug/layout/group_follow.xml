@@ -25,4 +25,4 @@
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:hint="휴대폰번호"/>
-</LinearLayout><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/layout/group_follow.xml -->
+</LinearLayout><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/layout/group_follow.xml -->

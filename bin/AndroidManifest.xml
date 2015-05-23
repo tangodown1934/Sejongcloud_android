@@ -98,7 +98,7 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.sejongcloud.app.tip.TipWeb"
+            android:name=".utils.CustomWebView"
             android:label="학교생활 팁"
             android:screenOrientation="portrait" >
         </activity>

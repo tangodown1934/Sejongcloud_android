@@ -7,4 +7,4 @@
     <item android:state_focused="true" android:color="@android:color/white" />
     <item android:state_pressed="true" android:color="@android:color/white" />
     <item android:color="@android:color/white" />
-</selector><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/drawable/tab_text_selector.xml -->
+</selector><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/drawable/tab_text_selector.xml -->

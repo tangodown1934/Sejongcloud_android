@@ -31,4 +31,4 @@
 		android:textColor="#A4A4A4"
 		android:layout_below="@id/comment"
 		android:layout_toRightOf="@id/commentPicture" />
-</RelativeLayout><!-- From: file:/C:/Users/TZ/AndroidstudioProjects/sejongcloud_android/res/layout/community_inner.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/TZ/git/sejongcloud_android/res/layout/community_inner.xml -->
