@@ -146,9 +146,12 @@ public class Notice extends ListActivity {
 			public void run() {
 				try {
 					result = GetNotice.getNotice(url);
-					noticeAdapter = new NoticeAdapter(Notice.this,
-							R.layout.notice_inner, result);
-					// 시간걸리는 처리
+					if(result==null) {
+						TransDialog.hideLoading();
+						return;
+					}
+
+					noticeAdapter = new NoticeAdapter(Notice.this, R.layout.notice_inner, result); // 시간걸리는 처리
 					onFirstHandler.sendEmptyMessage(0);
 				} catch (Exception e) {
 					Log.d("", e.getMessage());
@@ -173,6 +176,11 @@ public class Notice extends ListActivity {
 		public void run() {
 			try {
 				temp = GetNotice.getNotice(url);
+
+				if(temp==null){
+					TransDialog.hideLoading();
+					return;
+				}
 			} catch (Exception e) {
 				;
 			}
@@ -222,23 +230,24 @@ public class Notice extends ListActivity {
 			if (v == null) {
 				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				v = vi.inflate(R.layout.notice_inner, null);
-			}
-			Article mNotice = items.get(position);
-			if (mNotice != null) {
-				TextView noticeTitle = (TextView) v
-						.findViewById(R.id.noticeTitle);
-				TextView noticeSubTitle = (TextView) v
-						.findViewById(R.id.noticeSubTitle);
-				TextView noticeSubUser = (TextView) v
-						.findViewById(R.id.noticeSubUser);
-				if (noticeTitle != null) {
-					noticeTitle.setText(mNotice.getTitle());
-				}
-				if (noticeSubTitle != null) {
-					noticeSubTitle.setText(mNotice.getDate());
-				}
-				if (noticeSubUser != null) {
-					noticeSubUser.setText(mNotice.getUser());
+			}else {
+				Article mNotice = items.get(position);
+				if (mNotice != null) {
+					TextView noticeTitle = (TextView) v
+							.findViewById(R.id.noticeTitle);
+					TextView noticeSubTitle = (TextView) v
+							.findViewById(R.id.noticeSubTitle);
+					TextView noticeSubUser = (TextView) v
+							.findViewById(R.id.noticeSubUser);
+					if (noticeTitle != null) {
+						noticeTitle.setText(mNotice.getTitle());
+					}
+					if (noticeSubTitle != null) {
+						noticeSubTitle.setText(mNotice.getDate());
+					}
+					if (noticeSubUser != null) {
+						noticeSubUser.setText(mNotice.getUser());
+					}
 				}
 			}
 			return v;
@@ -318,6 +327,8 @@ public class Notice extends ListActivity {
 				
 				if(result == null){
 					System.out.print("ThreadNotice run error");
+					TransDialog.hideLoading();
+					return;
 				}
 			} catch (Exception e) {
 				Log.e("Get Notice Exception", e.toString());

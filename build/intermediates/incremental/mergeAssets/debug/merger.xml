@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\TZ\git\sejongcloud_android\assets"/></dataSet><dataSet config="debug"><source path="C:\Users\TZ\git\sejongcloud_android\build-types\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\TZ\git\sejongcloud-android\assets"/></dataSet><dataSet config="debug"><source path="C:\Users\TZ\git\sejongcloud-android\build-types\debug\assets"/></dataSet></merger>
