@@ -1,6 +1,6 @@
 # Sejongcloud #
 
-This is the Android application for Sejongcloud
+This is the Android application for Sejongcloud.
 
 ## Main tabs ##
 * Group - 모임 
