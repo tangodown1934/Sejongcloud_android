@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 	 <FrameLayout 
- 	    android:layout_width="fill_parent"
+ 	    android:layout_width="match_parent"
    	 	android:layout_height="48dp"
    	 	android:background="@drawable/tab_bg_selector"
    	 	android:paddingTop="4dp"
@@ -35,13 +35,13 @@
     <LinearLayout 
         android:id="@+id/sortButtons"
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
         >
 		<Button 
 		    android:id="@+id/noticeAll"
-		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_width = "wrap_content" android:layout_height = "match_parent"
 		    android:layout_weight="1"
 			android:padding="7dp"
 			android:background="@color/sub_blue"
@@ -49,7 +49,7 @@
 			android:text ="전체" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeNew"
-		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_width = "wrap_content" android:layout_height = "match_parent"
 		    android:layout_weight="1"
 			android:padding="7dp"
 			android:background="@color/sub_blue"
@@ -57,7 +57,7 @@
 			android:text ="입학" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeInter"
-		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_width = "wrap_content" android:layout_height = "match_parent"
 		    android:layout_weight="1"
 			android:padding="7dp"
 			android:background="@color/sub_blue"
@@ -65,7 +65,7 @@
 			android:text ="국제" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeCollege"
-		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_width = "wrap_content" android:layout_height = "match_parent"
 		    android:layout_weight="1"
 			android:padding="7dp"
 			android:background="@color/sub_blue"
@@ -73,7 +73,7 @@
 			android:text ="학사" android:textSize="11sp"/>
 		<Button 
 		    android:id="@+id/noticeGradute"
-		    android:layout_width = "wrap_content" android:layout_height = "fill_parent"
+		    android:layout_width = "wrap_content" android:layout_height = "match_parent"
 		    android:layout_weight="1"
 			android:padding="7dp"
 			android:background="@color/sub_blue"
@@ -82,7 +82,7 @@
 	</LinearLayout>
 	<ListView
 	android:id="@android:id/list"
-	android:layout_width="fill_parent"
+	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:layout_weight="1"
 	android:drawSelectorOnTop="false"
@@ -90,9 +90,9 @@
     android:cacheColorHint="#00000000"/>
 	<TextView 
 	    android:id="@android:id/empty" 
-		android:layout_width="fill_parent" 
-		android:text="게시물이 없습니다 " 
-		android:layout_height="fill_parent"
+		android:layout_width="match_parent"
+		android:text="게시물을 가져올 수 없습니다"
+		android:layout_height="match_parent"
 		android:gravity="center" 
 		/>
 </LinearLayout>

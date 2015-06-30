@@ -1,13 +1,20 @@
 package com.sejongcloud.app.notice;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.sejongcloud.app.dialog.TransDialog;
 import sejong.Article;
+import sejong.Parser;
+
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,7 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.sejongcloud.app.R;
 
-public class Notice extends ListActivity {
+public class Notice extends ListActivity{
 	long backKeyClick = 0;
 	long backKeyClickTime;
 	String mUrl1 = "http://cm.sejong.ac.kr/servlet/kr.co.k2web.jwizard.contents.board.boardUser.servlet.userMainServlet?command=list&client_id=board&handle=";
@@ -37,20 +44,16 @@ public class Notice extends ListActivity {
 	String url = null;
 	int[] handleArray = { 57, 59, 131, 60, 181 };
 	int handle;
-	ListView lv;
+	private ListView lv;
 	ThreadNotice mThread;
 	ArrayList<Article> result = null;
 	ArrayList<Article> temp = null;
-	NoticeAdapter noticeAdapter;
+	NoticeAdapter noticeAdapter = null;
 	int mPosition;
 	int url_current = 1;
-	int testTemp = 0;
 	int bol = 0;
-	TextView statusText;
-	LinearLayout mLinearLayout;
 	LinearLayout mProgressLayout;
 	LinearLayout buttonLinearLayout;
-	Button mFooterLayout;
 	Button sortBtn;
 	ImageButton ib;
 
@@ -62,14 +65,16 @@ public class Notice extends ListActivity {
 		buttonLinearLayout = (LinearLayout) findViewById(R.id.sortButtons);
 		SharedPreferences pref = getSharedPreferences("noticeBar", 0);
 		bol = pref.getInt("bol", 1);
+
 		if (bol == 1) { // 접기
 			buttonLinearLayout.setVisibility(View.VISIBLE);
 			sortBtn.setBackgroundResource(com.sejongcloud.app.R.drawable.sort_button_up);
 		} else { // 정렬
 			buttonLinearLayout.setVisibility(View.GONE);
 			sortBtn.setBackgroundResource(com.sejongcloud.app.R.drawable.sort_button_default);
-
 		}
+
+		/* 정렬버튼 */
 		sortBtn.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View v) {
 				if (buttonLinearLayout.getVisibility() == View.GONE) {
@@ -97,12 +102,11 @@ public class Notice extends ListActivity {
 			}
 
 			public void onScroll(AbsListView view, int firstVisibleItem,
-					int visibleItemCount, int totalItemCount) {
+								 int visibleItemCount, int totalItemCount) {
 				if ((firstVisibleItem + visibleItemCount) == totalItemCount) {
 				}
 			}
 		});
-		onFirstThread(); // 처음 데이터를 긁어올 때.. 로딩 표시 하기 위해 스레드로 구현
 
 		findViewById(R.id.noticeAll).setOnClickListener(mClickListener);
 		findViewById(R.id.noticeNew).setOnClickListener(mClickListener);
@@ -116,11 +120,20 @@ public class Notice extends ListActivity {
 						url = mUrl1 + handle + mUrl2 + handle + mUrl3
 								+ url_current + mUrl4;
 						mProgressLayout.setVisibility(View.VISIBLE);
-						getMoreList mGetThread = new getMoreList();
+						final getMoreList mGetThread = new getMoreList();
 						mGetThread.setDaemon(true);
 						mGetThread.start();
 					}
 				});
+
+
+		/* 처음 데이터를 가져오기 위한 스레드 */
+		TransDialog.showLoading(this);
+
+		if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB)
+			new GetNotice().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
+		else
+			new GetNotice().execute(url);
 	}
 
 	public void onPause() {
@@ -136,38 +149,8 @@ public class Notice extends ListActivity {
 		}
 
 		edit.putInt("bol", bol);
-
 		edit.commit();
 	}
-
-	public void onFirstThread() {
-		TransDialog.showLoading(this);
-		Thread thread = new Thread(new Runnable() {
-			public void run() {
-				try {
-					result = GetNotice.getNotice(url);
-					if(result==null) {
-						TransDialog.hideLoading();
-						return;
-					}
-
-					noticeAdapter = new NoticeAdapter(Notice.this, R.layout.notice_inner, result); // 시간걸리는 처리
-					onFirstHandler.sendEmptyMessage(0);
-				} catch (Exception e) {
-					Log.d("", e.getMessage());
-				}
-			}
-		});
-		thread.start();
-	}
-
-	private Handler onFirstHandler = new Handler() {
-		public void handleMessage(Message msg) {
-			TransDialog.hideLoading();
-			setListAdapter(noticeAdapter);
-			// View갱신
-		}
-	};
 
 	class getMoreList extends Thread { // code thread
 		getMoreList() {
@@ -175,14 +158,15 @@ public class Notice extends ListActivity {
 
 		public void run() {
 			try {
-				temp = GetNotice.getNotice(url);
+				temp = new GetNotice().getNotice(url);
 
-				if(temp==null){
+				if(temp == null){
 					TransDialog.hideLoading();
 					return;
 				}
+
 			} catch (Exception e) {
-				;
+				Log.d("getMoreList : ", e.getMessage());
 			}
 			getHandler.sendEmptyMessage(0);
 		}
@@ -195,19 +179,19 @@ public class Notice extends ListActivity {
 					return;
 
 				String resultTop = result.get(result.size() - 1).getId();
-				Log.w(" compare temp result : ", temp.get(0).getId()+"/"+temp.get(temp.size()-1).getId()+"/"+resultTop);
 
+				Log.w(" compare temp result : ", temp.get(0).getId()+"/"+temp.get(temp.size()-1).getId()+"/"+resultTop);
+				Log.w(" temp size : ", Integer.toString(temp.size()));
 				if (temp.get(0).getId().equals(resultTop) || temp.get(temp.size()-1).getId().equals(resultTop)){
 					ib = (ImageButton) findViewById(R.id.moreListButton);
 					ib.setVisibility(View.GONE);
 				}else {
 					for (int i = 0; i < temp.size(); i++) {
-						result.add(temp.get(i));
+						noticeAdapter.add(temp.get(i));
 					}
 				}
 
-				noticeAdapter.notifyDataSetChanged(); // ListView가 변경됬다는 것을 어댑터에
-				// 알려야함
+				noticeAdapter.notifyDataSetChanged(); // ListView가 변경됬다는 것을 어댑터에 알려야함
 				mProgressLayout.setVisibility(View.GONE);
 			}catch (Exception e ){
 				e.printStackTrace();
@@ -216,29 +200,38 @@ public class Notice extends ListActivity {
 	};
 
 	private class NoticeAdapter extends ArrayAdapter<Article> {
-		private ArrayList<Article> items;
-
 		public NoticeAdapter(Context context, int textViewResourceId,
-				ArrayList<Article> items) {
+							 ArrayList<Article> items) {
 			super(context, textViewResourceId, items);
-			this.items = items;
+		}
+
+		public void addNotice(ArrayList<Article> articles){
+			for(int i=0;i<articles.size();i++){
+				this.add(articles.get(i));
+			}
 		}
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View v = convertView;
+
 			if (v == null) {
-				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				v = vi.inflate(R.layout.notice_inner, null);
+				v = LayoutInflater.from(getContext()).inflate(R.layout.notice_inner, parent, false);
+//				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//				v = vi.inflate(R.layout.notice_inner, null);
 			}else {
-				Article mNotice = items.get(position);
+				Article mNotice = getItem(position);
+
 				if (mNotice != null) {
+					Log.d("Article mNotice :",mNotice.getTitle()+"/"+position);
+
 					TextView noticeTitle = (TextView) v
 							.findViewById(R.id.noticeTitle);
 					TextView noticeSubTitle = (TextView) v
 							.findViewById(R.id.noticeSubTitle);
 					TextView noticeSubUser = (TextView) v
 							.findViewById(R.id.noticeSubUser);
+
 					if (noticeTitle != null) {
 						noticeTitle.setText(mNotice.getTitle());
 					}
@@ -263,31 +256,31 @@ public class Notice extends ListActivity {
 			ib.setVisibility(View.VISIBLE);
 
 			switch (v.getId()) {
-			case R.id.noticeAll: // 전체
-				handle = handleArray[0];
-				url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
-						+ mUrl4;
-				break;
-			case R.id.noticeNew: // 입학
-				handle = handleArray[1];
-				url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
-						+ mUrl4;
-				break;
-			case R.id.noticeInter: // 국제
-				handle = handleArray[2];
-				url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
-						+ mUrl4;
-				break;
-			case R.id.noticeCollege: // 학사
-				handle = handleArray[3];
-				url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
-						+ mUrl4;
-				break;
-			case R.id.noticeGradute: // 졸업
-				handle = handleArray[4];
-				url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
-						+ mUrl4;
-				break;
+				case R.id.noticeAll: // 전체
+					handle = handleArray[0];
+					url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
+							+ mUrl4;
+					break;
+				case R.id.noticeNew: // 입학
+					handle = handleArray[1];
+					url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
+							+ mUrl4;
+					break;
+				case R.id.noticeInter: // 국제
+					handle = handleArray[2];
+					url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
+							+ mUrl4;
+					break;
+				case R.id.noticeCollege: // 학사
+					handle = handleArray[3];
+					url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
+							+ mUrl4;
+					break;
+				case R.id.noticeGradute: // 졸업
+					handle = handleArray[4];
+					url = mUrl1 + handle + mUrl2 + handle + mUrl3 + url_current
+							+ mUrl4;
+					break;
 			}
 			mThread = new ThreadNotice(url);
 			mThread.setDaemon(true);
@@ -314,17 +307,17 @@ public class Notice extends ListActivity {
 
 	private class ThreadNotice extends Thread { // code thread
 		String mUrl;
-		
+
 		public ThreadNotice(String url) {
 			mUrl = url;
 		}
-			
+
 		public void run() {
 			super.run();
-			
+
 			try {
-				result = GetNotice.getNotice(mUrl);
-				
+				result = new GetNotice().getNotice(url);
+
 				if(result == null){
 					System.out.print("ThreadNotice run error");
 					TransDialog.hideLoading();
@@ -386,5 +379,55 @@ public class Notice extends ListActivity {
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	private class GetNotice extends AsyncTask<String, Void, ArrayList<Article>> {
+		@Override
+		protected ArrayList<Article> doInBackground(String... urls){
+			try {
+				return this.getNotice(urls[0]);
+			}catch (Exception e){
+				e.printStackTrace();
+				return null;
+			}
+		}
+
+		@Override
+		protected void onPostExecute(ArrayList<Article> res){
+			TransDialog.hideLoading();
+
+			if(res != null){
+				result = new ArrayList<Article>();
+
+				noticeAdapter = new NoticeAdapter(Notice.this,
+						R.layout.notice_inner, result);
+				lv.setAdapter(noticeAdapter);
+
+				noticeAdapter.addNotice(res);
+				noticeAdapter.notifyDataSetChanged();
+			}
+		}
+
+		public ArrayList<Article> getNotice(String address) {
+			Pattern mPattern = Pattern.compile("handle=(.*)&board_id");
+			Matcher mTemp = mPattern.matcher(address); // 부가정보 따옴
+			String handle = null;
+
+			if (mTemp.find()) {
+				handle = mTemp.group(1);
+			}
+
+			Parser parser = new Parser();
+			ArrayList<Article> articles = new ArrayList<Article>();
+
+			try { // notice
+				articles = parser.previews(address, handle);
+			} catch (Exception e) {
+				Log.d("GetNotice Error : ", e.getMessage());
+				return null;
+			}
+
+			return articles;
+		}
 	}
 }
